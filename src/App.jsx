@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Input from "./components/Input";
 import ItemsList from "./components/ItemsList";
+import Filters from "./components/Filters";
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
         <Header />
         <Input />
         <ItemsList />
+        <div className="show-on-mobile">
+          <Filters />
+        </div>
       </div>
     </main>
   );

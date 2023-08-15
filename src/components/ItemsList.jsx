@@ -30,7 +30,9 @@ const ItemsList = () => {
       {/* User Options */}
       <div className="user-options-container">
         <p className="items-remain">5 items left</p>
-        <Filters />
+        <div className="hide-on-mobile">
+          <Filters />
+        </div>
         <button className="text-btn clear-completed-btn" type="button">
           clear completed
         </button>
