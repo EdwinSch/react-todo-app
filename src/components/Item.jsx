@@ -1,23 +1,20 @@
 import { VscChromeClose } from "react-icons/vsc";
-import { useState } from "react";
 
 import { useGlobalContext } from "../context";
 
 const Item = ({ id, task, completed }) => {
-  const { items, removeItem } = useGlobalContext();
-
-  //   const [isChecked, setIsChecked] = useState(completed);
+  const { items, removeItem, editItem } = useGlobalContext();
 
   return (
     <li className="task-wrapper">
       <div className="flexrow">
         <input
           type="checkbox"
-          //   checked={isChecked}
+          checked={completed}
           id="done"
-          //   onChange={() => setIsChecked(!isChecked)}
+          onChange={() => editItem(id)}
         />
-        <p className="task">{task}</p>
+        <p className={completed ? "task strike" : "task"}>{task}</p>
       </div>
 
       <button
