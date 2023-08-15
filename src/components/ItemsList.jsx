@@ -29,7 +29,7 @@ const ItemsList = () => {
       </ul>
       {/* User Options */}
       <div className="user-options-container">
-        <p className="items-remain">5 items left</p>
+        <p className="items-remain">3 items left</p>
         <div className="hide-on-mobile">
           <Filters />
         </div>

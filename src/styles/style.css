@@ -41,8 +41,8 @@ ul {
   --textSecondary: #494c6b;
   --accent: #3a7cfd;
   --wallpaperDesktop: url(../assets/bg-desktop-light.jpg);
+  --wallpaperMobile: url(../assets/bg-mobile-light.jpg);
   --borderClr: #e3e4f1;
-  /* --closeIconClr: #494c6b; */
 }
 
 /* Main Styles */
@@ -72,13 +72,26 @@ main {
   background-position: center;
 }
 
+@media only screen and (max-width: 450px) {
+  .wallpaper {
+    height: 200px;
+    background-image: var(--wallpaperMobile);
+  }
+}
+
 .center {
   position: absolute;
   top: 70px;
-  border: var(--inspect);
+  /* border: var(--inspect); */
   padding: 0 24px;
   width: 100%;
   max-width: 564px;
+}
+
+@media only screen and (max-width: 450px) {
+  .center {
+    top: 50px;
+  }
 }
 
 /* --- Header Component */
@@ -113,6 +126,14 @@ header {
       color: var(--accent);
     }
   }
+  @media only screen and (max-width: 450px) {
+    & h1 {
+      font-size: 2rem;
+    }
+    .colormode-btn {
+      font-size: 1.75rem;
+    }
+  }
 }
 
 /* --- Input Component */
@@ -133,6 +154,13 @@ input[type="text"] {
 
   &::placeholder {
     color: var(--textPrimary);
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  input[type="text"] {
+    height: 48px;
+    font-size: 0.875rem;
   }
 }
 
@@ -181,6 +209,15 @@ input[type="text"] {
     &:active {
       color: red;
       transform: scale(1.2);
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    .task {
+      font-size: 0.813rem;
+    }
+    .close-btn {
+      font-size: 1.25rem;
     }
   }
 }
