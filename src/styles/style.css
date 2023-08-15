@@ -1,0 +1,225 @@
+/* INIT */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+.img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+.text-btn {
+  font-size: 0.875rem;
+  font-family: inherit;
+  text-transform: capitalize;
+  color: var(--textPrimary);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: 250ms ease;
+}
+
+/* Variables */
+:root {
+  --font: "Josefin Sans", sans-serif;
+  --inspect: solid red 1px;
+  --fontSpacing: 0.25px;
+
+  --background: #fafafa;
+  --fieldsBg: #ffffff;
+  --textPrimary: #9495a5;
+  --textSecondary: #494c6b;
+  --accent: #3a7cfd;
+  --wallpaperDesktop: url(../assets/bg-desktop-light.jpg);
+  --borderClr: #e3e4f1;
+  /* --closeIconClr: #494c6b; */
+}
+
+/* Main Styles */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: var(--background);
+  font-family: var(--font);
+}
+
+main {
+  /* border: var(--inspect); */
+  position: relative;
+  margin: 0 auto;
+  max-width: 1920px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wallpaper {
+  width: 100%;
+  height: 300px;
+  background-image: var(--wallpaperDesktop);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.center {
+  position: absolute;
+  top: 70px;
+  border: var(--inspect);
+  padding: 0 24px;
+  width: 100%;
+  max-width: 564px;
+}
+
+/* --- Header Component */
+
+header {
+  width: 100%;
+  height: 48px;
+  margin-bottom: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  & h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 15px;
+    text-transform: uppercase;
+  }
+  .colormode-btn {
+    width: fit-content;
+    height: fit-content;
+    font-size: 2rem;
+    color: #ffffff;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: 250ms ease;
+
+    &:hover,
+    &:active {
+      color: var(--accent);
+    }
+  }
+}
+
+/* --- Input Component */
+
+input[type="text"] {
+  width: 100%;
+  height: 64px;
+  padding-left: 24px;
+  border-radius: 5px;
+  border: none;
+  background: var(--fieldsBg);
+  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  color: var(--textSecondary);
+  font-family: inherit;
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: var(--fontSpacing);
+
+  &::placeholder {
+    color: var(--textPrimary);
+  }
+}
+
+/* --- List Component */
+
+.list-container {
+  margin-top: 24px;
+  width: 100%;
+  border-radius: 5px;
+  background: var(--fieldsBg);
+  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+
+  .list-container {
+    width: 100%;
+  }
+}
+
+/* --- Item Component */
+.task-wrapper {
+  height: 64px;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--borderClr);
+  background: transparent;
+
+  .task {
+    color: var(--textSecondary);
+    font-size: 1.125rem;
+    font-weight: 400;
+    letter-spacing: var(--fontSpacing);
+  }
+  .close-btn {
+    width: fit-content;
+    height: fit-content;
+    font-size: 1.375rem;
+    color: var(--textSecondary);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: 200ms ease;
+
+    &:hover,
+    &:active {
+      color: red;
+      transform: scale(1.2);
+    }
+  }
+}
+
+/* --- User Options */
+
+.user-options-container {
+  height: 50px;
+  width: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .items-remain {
+    color: var(--textPrimary);
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: -0.194px;
+  }
+  .clear-completed-btn {
+    &:hover,
+    &:active {
+      color: red;
+    }
+  }
+}
+
+/* --- Filter Buttons Component */
+
+.filter-btns-container {
+  display: flex;
+  gap: 18px;
+
+  .filter-btn {
+    &:hover,
+    &:active {
+      color: var(--textSecondary);
+      font-weight: 600;
+    }
+  }
+}
