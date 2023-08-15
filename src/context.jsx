@@ -73,6 +73,24 @@ export const AppProvider = ({ children }) => {
     setLocalStorage(newItems);
   };
 
+  const resetAllItems = () => {
+    setItems(getLocalStorage());
+  };
+
+  const filterActiveItems = () => {
+    const newItems = items.filter((item) => {
+      return item.completed === false;
+    });
+    setItems(newItems);
+  };
+
+  const filterCompletedItems = () => {
+    const newItems = items.filter((item) => {
+      return item.completed === true;
+    });
+    setItems(newItems);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -83,6 +101,9 @@ export const AppProvider = ({ children }) => {
         setNewItemName,
         removeItem,
         editItem,
+        resetAllItems,
+        filterActiveItems,
+        filterCompletedItems,
       }}
     >
       {children}
