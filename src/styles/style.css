@@ -28,6 +28,10 @@ ul {
   cursor: pointer;
   transition: 250ms ease;
 }
+.flexrow {
+  display: flex;
+  align-items: center;
+}
 
 /* Variables */
 :root {
@@ -188,6 +192,13 @@ input[type="text"] {
   gap: 10px;
   border-bottom: 1px solid var(--borderClr);
   background: transparent;
+
+  & input[type="checkbox"] {
+    margin-right: 20px;
+    accent-color: #c058f3;
+    cursor: pointer;
+    transform: scale(1.3);
+  }
 
   .task {
     color: var(--textSecondary);

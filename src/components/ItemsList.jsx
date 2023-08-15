@@ -3,26 +3,10 @@ import Filters from "./Filters";
 
 import { useGlobalContext } from "../context";
 
-const testList = [
-  {
-    id: 1,
-    task: "Everyday carry keffiyeh wolf vinyl",
-    completed: false,
-  },
-  {
-    id: 2,
-    task: "Paleo thundercats pitchfork gochujang",
-    completed: false,
-  },
-  {
-    id: 3,
-    task: "Lyft disrupt butcher glossier sustainable",
-    completed: false,
-  },
-];
-
 const ItemsList = () => {
   const { items } = useGlobalContext();
+
+  console.log(items);
 
   return (
     <div className="list-container">
@@ -33,7 +17,9 @@ const ItemsList = () => {
       </ul>
       {/* User Options */}
       <div className="user-options-container">
-        <p className="items-remain">3 items left</p>
+        <p className="items-remain">
+          {items.length === 0 ? "List is empty" : `${items.length} items left`}
+        </p>
         <div className="hide-on-mobile">
           <Filters />
         </div>
