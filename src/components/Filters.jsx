@@ -1,7 +1,7 @@
 import { useGlobalContext } from "../context";
 
 const Filters = () => {
-  const { filterActiveItems, resetAllItems, filterCompletedItems } =
+  const { items, filterActiveItems, resetAllItems, filterCompletedItems } =
     useGlobalContext();
 
   return (
@@ -13,20 +13,25 @@ const Filters = () => {
       >
         all
       </button>
-      <button
-        className="text-btn filter-btn"
-        onClick={filterActiveItems}
-        type="button"
-      >
-        active
-      </button>
-      <button
-        className="text-btn filter-btn"
-        onClick={filterCompletedItems}
-        type="button"
-      >
-        completed
-      </button>
+
+      {items.length > 0 && (
+        <>
+          <button
+            className="text-btn filter-btn"
+            onClick={filterActiveItems}
+            type="button"
+          >
+            active
+          </button>
+          <button
+            className="text-btn filter-btn"
+            onClick={filterCompletedItems}
+            type="button"
+          >
+            completed
+          </button>
+        </>
+      )}
     </section>
   );
 };

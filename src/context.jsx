@@ -91,6 +91,12 @@ export const AppProvider = ({ children }) => {
     setItems(newItems);
   };
 
+  const clearAllItems = () => {
+    const newItems = [];
+    setItems(newItems);
+    setLocalStorage(newItems);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -104,6 +110,7 @@ export const AppProvider = ({ children }) => {
         resetAllItems,
         filterActiveItems,
         filterCompletedItems,
+        clearAllItems,
       }}
     >
       {children}

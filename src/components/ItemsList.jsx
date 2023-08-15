@@ -4,7 +4,7 @@ import Filters from "./Filters";
 import { useGlobalContext } from "../context";
 
 const ItemsList = () => {
-  const { items } = useGlobalContext();
+  const { items, clearAllItems } = useGlobalContext();
 
   // console.log(items);
 
@@ -18,13 +18,19 @@ const ItemsList = () => {
       {/* User Options */}
       <div className="user-options-container">
         <p className="items-remain">
-          {items.length === 0 ? "List is empty" : `${items.length} items left`}
+          {items.length === 0 ? "List is empty" : `${items.length} items`}
         </p>
+
         <div className="hide-on-mobile">
           <Filters />
         </div>
-        <button className="text-btn clear-completed-btn" type="button">
-          clear completed
+
+        <button
+          className="text-btn clear-list-btn"
+          onClick={clearAllItems}
+          type="button"
+        >
+          clear List
         </button>
       </div>
     </div>

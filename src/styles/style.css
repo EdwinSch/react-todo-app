@@ -256,10 +256,11 @@ input[type="text"] {
     font-weight: 400;
     letter-spacing: -0.194px;
   }
-  .clear-completed-btn {
+  .clear-list-btn {
     &:hover,
     &:active {
-      color: red;
+      color: white;
+      background: red;
     }
   }
   @media only screen and (max-width: 500px) {
