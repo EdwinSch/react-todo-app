@@ -8,12 +8,14 @@ const Item = ({ id, task, completed }) => {
   return (
     <li className="task-wrapper">
       <div className="flexrow">
-        <input
-          type="checkbox"
-          checked={completed}
-          id="done"
-          onChange={() => editItem(id)}
-        />
+        <label className="container">
+          <input
+            type="checkbox"
+            checked={completed}
+            onChange={() => editItem(id)}
+          />
+          <span className="checkmark"></span>
+        </label>
         <p className={completed ? "task strike" : "task"}>{task}</p>
       </div>
 

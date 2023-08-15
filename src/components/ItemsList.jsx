@@ -4,7 +4,7 @@ import Filters from "./Filters";
 import { useGlobalContext } from "../context";
 
 const ItemsList = () => {
-  const { items, clearAllItems } = useGlobalContext();
+  const { items, clearList } = useGlobalContext();
 
   // console.log(items);
 
@@ -27,7 +27,7 @@ const ItemsList = () => {
 
         <button
           className="text-btn clear-list-btn"
-          onClick={clearAllItems}
+          onClick={clearList}
           type="button"
         >
           clear List

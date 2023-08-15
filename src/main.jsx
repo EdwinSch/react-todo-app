@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 
 import "./styles/style.css";
+import "./styles/checkbox.css";
 
 import { AppProvider } from "./context.jsx";
 

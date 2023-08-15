@@ -3,25 +3,6 @@ import { nanoid } from "nanoid";
 
 const AppContext = createContext();
 
-// TEST list [TEMP]
-const testList = [
-  {
-    id: 1,
-    task: "Everyday carry keffiyeh wolf vinyl",
-    completed: false,
-  },
-  {
-    id: 2,
-    task: "Paleo thundercats pitchfork gochujang",
-    completed: false,
-  },
-  {
-    id: 3,
-    task: "Lyft disrupt butcher glossier sustainable",
-    completed: false,
-  },
-];
-
 // Local Storage Functions
 const getLocalStorage = () => {
   let list = localStorage.getItem("list");
@@ -78,20 +59,22 @@ export const AppProvider = ({ children }) => {
   };
 
   const filterActiveItems = () => {
-    const newItems = items.filter((item) => {
+    const resetItems = getLocalStorage();
+    const newItems = resetItems.filter((item) => {
       return item.completed === false;
     });
     setItems(newItems);
   };
 
   const filterCompletedItems = () => {
-    const newItems = items.filter((item) => {
+    const resetItems = getLocalStorage();
+    const newItems = resetItems.filter((item) => {
       return item.completed === true;
     });
     setItems(newItems);
   };
 
-  const clearAllItems = () => {
+  const clearList = () => {
     const newItems = [];
     setItems(newItems);
     setLocalStorage(newItems);
@@ -110,7 +93,7 @@ export const AppProvider = ({ children }) => {
         resetAllItems,
         filterActiveItems,
         filterCompletedItems,
-        clearAllItems,
+        clearList,
       }}
     >
       {children}

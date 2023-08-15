@@ -195,14 +195,8 @@ input[type="text"] {
   border-bottom: 1px solid var(--borderClr);
   background: transparent;
 
-  & input[type="checkbox"] {
-    margin-right: 20px;
-    accent-color: #c058f3;
-    cursor: pointer;
-    transform: scale(1.3);
-  }
-
   .task {
+    margin-left: 10px;
     color: var(--textSecondary);
     font-size: 1.125rem;
     font-weight: 400;
@@ -231,8 +225,11 @@ input[type="text"] {
   }
 
   @media only screen and (max-width: 450px) {
+    padding: 0 18px;
+
     .task {
-      font-size: 0.813rem;
+      margin-left: 2px;
+      font-size: 0.875rem;
     }
     .close-btn {
       font-size: 1.25rem;
@@ -257,10 +254,11 @@ input[type="text"] {
     letter-spacing: -0.194px;
   }
   .clear-list-btn {
+    /* color:  */
+
     &:hover,
     &:active {
-      color: white;
-      background: red;
+      color: red;
     }
   }
   @media only screen and (max-width: 500px) {
@@ -299,6 +297,9 @@ input[type="text"] {
     &:active {
       color: var(--textSecondary);
       font-weight: 600;
+    }
+    &:focus {
+      color: var(--accent);
     }
   }
 }
