@@ -22,6 +22,7 @@ export const AppProvider = ({ children }) => {
   // Global Stats
   const [items, setItems] = useState(getLocalStorage());
   const [newItemName, setNewItemName] = useState("");
+  const [theme, setTheme] = useState("light-theme");
 
   // Global Functions
   const addItem = (itemName) => {
@@ -80,6 +81,14 @@ export const AppProvider = ({ children }) => {
     setLocalStorage(newItems);
   };
 
+  const toggleTheme = () => {
+    if (theme === "light-theme") {
+      setTheme("dark-theme");
+      return;
+    }
+    setTheme("light-theme");
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -94,6 +103,9 @@ export const AppProvider = ({ children }) => {
         filterActiveItems,
         filterCompletedItems,
         clearList,
+        theme,
+        setTheme,
+        toggleTheme,
       }}
     >
       {children}
