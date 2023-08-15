@@ -1,6 +1,8 @@
 import Item from "./Item";
 import Filters from "./Filters";
 
+import { useGlobalContext } from "../context";
+
 const testList = [
   {
     id: 1,
@@ -20,10 +22,12 @@ const testList = [
 ];
 
 const ItemsList = () => {
+  const { items } = useGlobalContext();
+
   return (
     <div className="list-container">
       <ul className="list">
-        {testList.map((item) => {
+        {items.map((item) => {
           return <Item key={item.id} {...item} />;
         })}
       </ul>
