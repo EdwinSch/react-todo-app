@@ -7,7 +7,12 @@ const Header = () => {
   return (
     <header>
       <h1>todo</h1>
-      <button className="colormode-btn" onClick={toggleTheme} type="button">
+      <button
+        className="colormode-btn"
+        onClick={toggleTheme}
+        type="button"
+        aria-label="toggle color theme"
+      >
         {theme === "light-theme" ? <RiMoonFill /> : <RiSunFill />}
       </button>
     </header>
