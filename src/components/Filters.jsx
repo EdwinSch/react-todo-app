@@ -1,37 +1,22 @@
 import { useGlobalContext } from "../context";
 
 const Filters = () => {
-  const { items, filterActiveItems, resetAllItems, filterCompletedItems } =
-    useGlobalContext();
+  const { filterBtns, filterItems } = useGlobalContext();
 
   return (
     <section className="filter-btns-container">
-      <button
-        className="text-btn filter-btn"
-        onClick={resetAllItems}
-        type="button"
-      >
-        all
-      </button>
-
-      {items.length > 0 && (
-        <>
+      {filterBtns.map((button, index) => {
+        return (
           <button
+            key={button}
             className="text-btn filter-btn"
-            onClick={filterActiveItems}
+            onClick={() => filterItems(button)}
             type="button"
           >
-            active
+            {button}
           </button>
-          <button
-            className="text-btn filter-btn"
-            onClick={filterCompletedItems}
-            type="button"
-          >
-            completed
-          </button>
-        </>
-      )}
+        );
+      })}
     </section>
   );
 };

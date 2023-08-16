@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 
 const AppContext = createContext();
 
-// Local Storage Functions
+// ---- Local Storage Functions
 const getLocalStorage = () => {
   let list = localStorage.getItem("list");
   if (list) {
@@ -19,12 +19,12 @@ const setLocalStorage = (items) => {
 };
 
 export const AppProvider = ({ children }) => {
-  // Global Stats
+  // ---- Global States
   const [items, setItems] = useState(getLocalStorage());
   const [newItemName, setNewItemName] = useState("");
   const [theme, setTheme] = useState("light-theme");
 
-  // Global Functions
+  // ---- Global Functions
   const addItem = (itemName) => {
     const newItem = {
       id: nanoid(),
@@ -55,24 +55,23 @@ export const AppProvider = ({ children }) => {
     setLocalStorage(newItems);
   };
 
-  const resetAllItems = () => {
-    setItems(getLocalStorage());
-  };
-
-  const filterActiveItems = () => {
-    const resetItems = getLocalStorage();
-    const newItems = resetItems.filter((item) => {
-      return item.completed === false;
-    });
-    setItems(newItems);
-  };
-
-  const filterCompletedItems = () => {
-    const resetItems = getLocalStorage();
-    const newItems = resetItems.filter((item) => {
-      return item.completed === true;
-    });
-    setItems(newItems);
+  const filterItems = (input) => {
+    if (input === "all") {
+      setItems(getLocalStorage());
+      return;
+    }
+    if (input === "active") {
+      const reloadItems = getLocalStorage();
+      const newItems = reloadItems.filter((item) => item.completed === false);
+      setItems(newItems);
+      return;
+    }
+    if (input === "completed") {
+      const reloadItems = getLocalStorage();
+      const newItems = reloadItems.filter((item) => item.completed === true);
+      setItems(newItems);
+      return;
+    }
   };
 
   const clearList = () => {
@@ -89,6 +88,9 @@ export const AppProvider = ({ children }) => {
     setTheme("light-theme");
   };
 
+  // ---- Global Data
+  const filterBtns = ["all", "active", "completed"];
+
   return (
     <AppContext.Provider
       value={{
@@ -99,13 +101,12 @@ export const AppProvider = ({ children }) => {
         setNewItemName,
         removeItem,
         editItem,
-        resetAllItems,
-        filterActiveItems,
-        filterCompletedItems,
+        filterItems,
         clearList,
         theme,
         setTheme,
         toggleTheme,
+        filterBtns,
       }}
     >
       {children}

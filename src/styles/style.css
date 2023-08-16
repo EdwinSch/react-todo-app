@@ -77,7 +77,6 @@ body {
 }
 
 main {
-  /* border: var(--inspect); */
   position: relative;
   margin: 0 auto;
   max-width: 1920px;
@@ -105,7 +104,6 @@ main {
 .center {
   position: absolute;
   top: 70px;
-  /* border: var(--inspect); */
   padding: 0 24px;
   width: 100%;
   max-width: 564px;
@@ -271,8 +269,6 @@ input[type="text"] {
     letter-spacing: -0.194px;
   }
   .clear-list-btn {
-    /* color:  */
-
     &:hover,
     &:active {
       color: red;
