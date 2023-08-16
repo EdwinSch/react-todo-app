@@ -311,8 +311,11 @@ input[type="text"] {
       color: var(--textSecondary);
       font-weight: 600;
     }
-    &:focus {
+    /* &:focus {
       color: var(--accent);
-    }
+    } */
+  }
+  .active-filter {
+    color: var(--accent);
   }
 }

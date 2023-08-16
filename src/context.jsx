@@ -55,7 +55,9 @@ export const AppProvider = ({ children }) => {
     setLocalStorage(newItems);
   };
 
-  const filterItems = (input) => {
+  const filterItems = (input, setActive, index) => {
+    setActive(index);
+
     if (input === "all") {
       setItems(getLocalStorage());
       return;
