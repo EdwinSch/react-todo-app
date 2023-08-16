@@ -3,7 +3,7 @@ import { VscChromeClose } from "react-icons/vsc";
 import { useGlobalContext } from "../context";
 
 const Item = ({ id, task, completed }) => {
-  const { items, removeItem, editItem } = useGlobalContext();
+  const { removeItem, editItem } = useGlobalContext();
 
   return (
     <li className="task-wrapper">

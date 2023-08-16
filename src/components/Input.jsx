@@ -17,8 +17,6 @@ const Input = () => {
     }
     addItem(newItemName);
     setNewItemName("");
-
-    // console.log(newItemName);
   };
 
   return (

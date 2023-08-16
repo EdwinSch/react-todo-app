@@ -1,5 +1,5 @@
 import { useGlobalContext } from "../context";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 const Filters = () => {
   const { filterBtns, filterItems } = useGlobalContext();

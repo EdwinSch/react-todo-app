@@ -6,8 +6,6 @@ import { useGlobalContext } from "../context";
 const ItemsList = () => {
   const { items, clearList } = useGlobalContext();
 
-  // console.log(items);
-
   return (
     <div className="list-container">
       <ul className="list">
